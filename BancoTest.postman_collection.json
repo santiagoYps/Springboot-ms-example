@@ -1,0 +1,461 @@
+{
+	"info": {
+		"_postman_id": "6075344b-c207-40e3-8276-052cd0630ecf",
+		"name": "BancoTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27462149"
+	},
+	"item": [
+		{
+			"name": "Clients-ms",
+			"item": [
+				{
+					"name": "Create client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Pedro Parrilla\",\r\n  \"genero\": \"M\",\r\n  \"edad\": 30,\r\n  \"identificacion\": \"1234567891\",\r\n  \"direccion\": \"123 Main Street\",\r\n  \"telefono\": \"555-123-4567\",\r\n  \"password\": \"mysecretpassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Duplicate Client",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"Pedro Parrilla\",\r\n  \"genero\": \"M\",\r\n  \"edad\": 30,\r\n  \"identificacion\": \"1234567891\",\r\n  \"direccion\": \"123 Main Street\",\r\n  \"telefono\": \"555-123-4567\",\r\n  \"password\": \"mysecretpassword\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/clients",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"clients"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "transfer-encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 16:07:18 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"El cliente ya ha sido registrado\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get a client",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/clients/1234567890",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clients",
+								"1234567890"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get a client",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/clients/1234567890",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"clients",
+										"1234567890"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "transfer-encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 16:03:38 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"68d14cf1-5b9c-44fc-8282-c2a19c812425\",\n    \"nombre\": \"Juan Perea R\",\n    \"genero\": \"M\",\n    \"edad\": 22,\n    \"identificacion\": \"1234567890\",\n    \"direccion\": \"123 Main Street\",\n    \"telefono\": \"555-123-4567\",\n    \"estado\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/clients/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clients",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all clients",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/clients/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"clients",
+										"all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "transfer-encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 16:12:17 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"68d14cf1-5b9c-44fc-8282-c2a19c812425\",\n        \"nombre\": \"Juan Perea R\",\n        \"genero\": \"M\",\n        \"edad\": 22,\n        \"identificacion\": \"1234567890\",\n        \"direccion\": \"123 Main Street\",\n        \"telefono\": \"555-123-4567\",\n        \"estado\": true\n    },\n    {\n        \"id\": \"71f1f6d1-69b4-4a20-99ec-d6e4ce48893b\",\n        \"nombre\": \"Pedro Parrilla\",\n        \"genero\": \"M\",\n        \"edad\": 30,\n        \"identificacion\": \"1234567891\",\n        \"direccion\": \"123 Main Street\",\n        \"telefono\": \"555-123-4567\",\n        \"estado\": false\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Update client",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"68d14cf1-5b9c-44fc-8282-c2a19c812425\",\r\n  \"nombre\": \"Juan Perea R\",\r\n  \"genero\": \"M\",\r\n  \"edad\": 22,\r\n  \"identificacion\": \"1234567890\",\r\n  \"direccion\": \"123 Main Street\",\r\n  \"telefono\": \"555-123-4567\",\r\n  \"password\": \"mysecretpassword4\",\r\n  \"estado\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Client",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/clients/1234567890",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clients",
+								"1234567890"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Accounts-ms",
+			"item": [
+				{
+					"name": "Create Account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numero\": 1020304051,\r\n    \"tipo\": \"AHORROS\",\r\n    \"saldo\": 200.50,\r\n    \"estado\": true,\r\n    \"cliente\": \"68d14cf1-5b9c-44fc-8282-c2a19c812425\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/accounts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Account",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"numero\": 1020304051,\r\n    \"tipo\": \"AHORROS\",\r\n    \"saldo\": 200.50,\r\n    \"estado\": true,\r\n    \"cliente\": \"68d14cf1-5b9c-44fc-8282-c2a19c812425\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/accounts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"accounts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "transfer-encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 15:14:01 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"numero\": 1020304051,\n    \"tipo\": \"AHORROS\",\n    \"saldo\": 200.5,\n    \"estado\": true,\n    \"cliente\": \"68d14cf1-5b9c-44fc-8282-c2a19c812425\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Register Movement",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"monto\": -10.1,\r\n    \"cuenta\": 1020304051,\r\n    \"cliente\": \"68d14cf1-5b9c-44fc-8282-c2a19c812425\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/movements",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Report",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroIdCliente\": 1234567890\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/reports/accountsReport?from=2023-10-27&until=2023-10-27",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"reports",
+								"accountsReport"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "2023-10-27"
+								},
+								{
+									"key": "until",
+									"value": "2023-10-27"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Report",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"numeroIdCliente\": 1234567890\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/reports/accountsReport?from=2023-10-27&until=2023-10-27",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"reports",
+										"accountsReport"
+									],
+									"query": [
+										{
+											"key": "from",
+											"value": "2023-10-27"
+										},
+										{
+											"key": "until",
+											"value": "2023-10-27"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "transfer-encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 15:45:00 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"numeroIdCliente\": \"1234567890\",\n    \"nombreCliente\": \"Juan Pérez\",\n    \"cuentas\": [\n        {\n            \"numero\": 1020304050,\n            \"tipo\": \"AHORROS\",\n            \"saldo\": 200.5,\n            \"estado\": true,\n            \"movimientos\": []\n        },\n        {\n            \"numero\": 1020304051,\n            \"tipo\": \"AHORROS\",\n            \"saldo\": 200.5,\n            \"estado\": true,\n            \"movimientos\": [\n                {\n                    \"id\": \"b508a1d9-d9e9-431b-92e6-7950c248d680\",\n                    \"fecha\": \"2023-10-27T16:05:29\",\n                    \"tipo\": \"RETIRO\",\n                    \"saldoInicial\": 0,\n                    \"monto\": 0,\n                    \"saldoActual\": 0,\n                    \"cuenta\": 1020304051,\n                    \"cliente\": \"68d14cf1-5b9c-44fc-8282-c2a19c812425\"\n                },\n                {\n                    \"id\": \"45cb872b-af12-43fa-ab47-d9df1d90d49a\",\n                    \"fecha\": \"2023-10-27T16:05:45\",\n                    \"tipo\": \"DEPOSITO\",\n                    \"saldoInicial\": 0,\n                    \"monto\": 10,\n                    \"saldoActual\": 10,\n                    \"cuenta\": 1020304051,\n                    \"cliente\": \"68d14cf1-5b9c-44fc-8282-c2a19c812425\"\n                }\n            ]\n        },\n        {\n            \"numero\": 1020304052,\n            \"tipo\": \"AHORROS\",\n            \"saldo\": 0,\n            \"estado\": true,\n            \"movimientos\": []\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
